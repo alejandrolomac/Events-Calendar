@@ -1,0 +1,138 @@
+.calendar {
+    width: 100%;
+    margin: auto;
+    font-size: 12px;
+}
+
+.calendar tr, .calendar td {
+    border: 1px solid #ccc;
+}
+
+.calendar th {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.calendar td {
+    width: 200px;
+    height: 150px;
+    padding: 5px;
+}
+
+.month {
+    font-size: 25px;
+}
+
+.date {
+    font-size: 16px;
+    color: #fff;
+    background: #444;
+    padding: 0px;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    margin: 0px;
+    text-align: center;
+    display: block;
+}
+
+.calendar ul {
+    height: auto;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    list-style: none;
+}
+
+a {
+    color: #17a2b8;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.btn {
+    color: #fff;
+    background: #034f9d;
+    border: none;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #319f56;
+    border: none;
+}
+
+.clearfix {
+    margin: 15px;
+}
+
+.form {
+    margin: auto;
+}
+
+.form input, .form select, .form textarea {
+    border-radius: 5px;
+    border: 1px solid #17a2b8;
+    outline: none;
+    background: none;
+    padding: 5px;
+    width: 100%;
+}
+
+.calendar .month
+{
+    background: #034f9d;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.calendar .mon, .calendar .tue, .calendar .wed, .calendar .thu, .calendar .fri, .calendar .sat, .calendar .sun
+{
+    background: #034f9d;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.calendar tr td:not(:empty) {
+    background: #fff;
+}
+
+.calendar tr td {
+    background: #f5f5f5;
+}
+
+.calendar ul li:not(:empty){
+    margin-bottom: 5px;
+}
+
+.calendar ul li:not(:empty) a {
+    background: #319f56;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+}
+
+.calendar ul li:not(:empty) a:hover {
+    background:#14923e;
+}
+
+.calendar ul li a span
+{
+    display: block;
+    width: 10px;
+    height: 10px;
+    float: left;
+    margin-right: 5px;
+    border-radius: 100%;
+    margin-top: 4px;
+}
