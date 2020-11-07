@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Evento
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="clearfix">
+            <a class="btn btn-primary left" href="{% url 'calendarapp:calendar' %}">Calendario</a>
+            {% if request.user == 'admin' %}
+                <a class="btn btn-info right mr-2" href="{% url 'calendarapp:event_edit' event.pk %}">Editar Evento</a>
+            {% endif %}
+        </div>
+        
+        <div class="clearfix">
+            <h3>{{ event.title }}</h3>
+            <p>Del <span style="color: gray;">{{ event.start_time }}</span> Al <span style="color: gray;">{{ event.end_time }}</span></p>
+            <hr>
+            <p>{{ event.description }}</p>
+        </div>
+        <hr>
+        <div class="clearfix">
+            <h4 class="left" >Miembros que Asistirán</h4>
+            <a class="btn btn-success right" href="{% url 'calendarapp:add_eventmember' event.id %}">Asistiré</a>
+        </div>
+        <div class="container mb-5 mt-5">
+            <div class="row">
+                <div class="col-sm text-center">
+                    <h5 style="font-weight: lighter;">Adultos</h5>
+                    <h3>{{adultcount}}</h3>
+                </div>
+                <div class="col-sm text-center">
+                    <h5 style="font-weight: lighter;">Niños</h5>
+                    <h3>{{kidcount}}</h3>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped mb-5">
+            <thead style="background: #034f9d; color: #Fff;">                  
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Nombre</th>
+                  <th>Cuantos Adultos Asistiran</th>
+                  <th>Cuantos Niños Asistiran</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for member in eventmember %}
+                <tr role="row">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.adults }}</td>
+                    <td>{{ member.kids }}</td>
+                    <!--<td>
+                        <a class="btn btn-danger" href="{% url 'calendarapp:remove_event' member.id %}">Remove</a>
+                    </td>-->
+                </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user == 'admin' %}
+    <div class="clearfix">
+        <span class="left m-2" style="font-size: 20px;">Bienvenido, {{ request.user }}</span>
+        <a class="btn btn-info right" href="{% url 'logout' %}"> Salir </a>
+        <a class="btn btn-info right mr-2" href="{% url 'calendarapp:calendar' %}?{{ next_month }} "> Siguiente Mes >> </a>
+        <a class="btn btn-info right mr-2" href="{% url 'calendarapp:calendar' %}?{{ prev_month }}"> << Mes Anterior </a>
+        <a class="btn btn-info right mr-2" href="{% url 'calendarapp:event_new' %}"> + Nuevo Evento </a>
+    </div>
+{% else %}
+    <div class="clearfix">
+        <a class="btn btn-info right mr-2" href="{% url 'calendarapp:calendar' %}?{{ next_month }} "> Siguiente Mes >> </a>
+        <a class="btn btn-info right mr-2" href="{% url 'calendarapp:calendar' %}?{{ prev_month }}"> << Mes Anterior </a>
+    </div>
+{% endif %}
+<div>
+    {{ calendar }}
+</div>
+{% endblock %}
