@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="clearfix">
-  <a class="btn btn-info left" href="{% url 'calendarapp:calendar' %}"> Calendario </a>
+  <img src="{% static 'admin/img/logo.jpeg' %}" style="width: 60px; float: left;">
+  <a class="btn btn-primary right mt-3 ml-2" href="{% url 'calendarapp:calendar' %}">Calendario</a>
 </div>
 
-<form method="post">
+<form method="post" class="mt-5">
   {% csrf_token %}
   <table class="form form-table">
     {{ form }}

@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
-
-{% block title %}
-Evento
-{% endblock %}
-
+{% load static %}
 {% block content %}
     <div class="container">
         <div class="clearfix">
-            <a class="btn btn-primary left" href="{% url 'calendarapp:calendar' %}">Calendario</a>
-            {% if request.user == 'admin' %}
-                <a class="btn btn-info right mr-2" href="{% url 'calendarapp:event_edit' event.pk %}">Editar Evento</a>
+            <img src="{% static 'admin/img/logo.jpeg' %}" style="width: 60px; float: left;">
+            <a class="btn btn-primary right mt-3 ml-2" href="{% url 'calendarapp:calendar' %}">Calendario</a>
+            {% if user.is_authenticated  %}
+                <a class="btn btn-info right mr-2 mt-3" href="{% url 'calendarapp:event_edit' event.pk %}">Editar Evento</a>
             {% endif %}
         </div>
         
